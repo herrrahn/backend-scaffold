@@ -1,13 +1,20 @@
 package com.rafaelrahn.demospringrrr.personnel;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
+@Entity
 public class Personnel {
+    @Id
     private int pers_id;
     private String full_name;
     private String email;
     private LocalDate birthday;
     private PersonnelType pers_type;
+
+    public Personnel() {
+    }
 
     public Personnel(int pers_id, String full_name, String email, LocalDate birthday, PersonnelType pers_type) {
         this.pers_id = pers_id;

@@ -16,11 +16,12 @@ public class PersonnelService {
     }
 
     public Personnel addPersonnel(Personnel p) {
-        return this.personnelRepository.addPersonnel(p);
+        return this.personnelRepository.save(p);
     }
 
-    public boolean removePersonnel(int id) {
-        return this.personnelRepository.removePersonnel(id);
+    public boolean removePersonnel(Integer id) {
+        this.personnelRepository.deleteById(id);
+        return true;
     }
 
     public List<Personnel> findAll() {
