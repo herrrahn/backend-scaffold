@@ -34,5 +34,9 @@ public class PersonnelController {
     public boolean removePersonnel(@PathVariable(value = "id") int id) {
         return this.personnelService.removePersonnel(id);
     }
+    @GetMapping("ping")
+    public @ResponseBody String greeting() {
+        return this.personnelService.ping();// "Hello, World";
+    }
 
 }

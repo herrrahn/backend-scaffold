@@ -27,4 +27,8 @@ public class PersonnelService {
     public List<Personnel> findAll() {
         return this.personnelRepository.findAll();
     }
+
+    public String ping() {
+        return "pong from service";
+    }
 }
