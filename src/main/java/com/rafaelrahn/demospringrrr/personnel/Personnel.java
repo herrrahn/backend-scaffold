@@ -2,12 +2,16 @@ package com.rafaelrahn.demospringrrr.personnel;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
 public class Personnel {
     @Id
     private int pers_id;
+    @NotNull
+    @Size(min=3, max = 15)
     private String full_name;
     private String email;
     private LocalDate birthday;

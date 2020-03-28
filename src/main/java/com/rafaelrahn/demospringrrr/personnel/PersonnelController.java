@@ -1,8 +1,10 @@
 package com.rafaelrahn.demospringrrr.personnel;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collections;
@@ -26,7 +28,11 @@ public class PersonnelController {
     }
 
     @PostMapping
-    public Personnel addPersonnel(@RequestBody Personnel p) {
+    public Personnel addPersonnel(@RequestBody @Valid Personnel p,
+                                  Errors errors) {
+        if (errors.hasErrors()) {
+            throw new RuntimeException("Personnel is invalid.");
+        }
         return personnelService.addPersonnel(p);
     }
 
